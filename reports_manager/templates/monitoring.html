@@ -1,0 +1,30 @@
+{% extends "b/base.html" %}
+{% block title %}Monitor{% endblock %}
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+    <meta http-equiv="refresh" content="3600">
+    <div class="table-responsive">
+        {{ pagination.links }}
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="text-info small text-center text-capitalize">ID</th>
+                <th class="text-info small text-center text-capitalize">Fecha</th>
+                <th class="text-info small text-center text-capitalize">Tiempo down hasta el momento</th>
+                <th class="text-info small text-center text-capitalize">Bitacoras donde se encontro downtime</th>
+                <th class="text-info small text-center text-capitalize">Servidor</th>
+            </tr>
+            {% for i in result %}
+                <tr>
+                    <td class="danger small text-center">{{ i.id }}</td>
+                    <td class="danger small text-center">{{ i.date }}</td>
+                    <td class="danger small text-center">{{ i.time_down }}</td>
+                    <td class="danger small text-center">{{ i.files_down }}</td>
+                    <td class="danger small text-center">{{ i.hostname }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {{ pagination.links }}
+    </div>
+{% endblock %}

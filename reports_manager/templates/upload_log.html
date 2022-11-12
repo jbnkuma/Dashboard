@@ -1,0 +1,69 @@
+{% extends "b/base.html" %}
+{% block title %}Add Server{% endblock %}
+
+{% block content %}
+    <div class="col-md-5">
+        <div class="panel panel-info">
+            <blockquote class="small">
+                <div class="panel-heading"><h4>Para realizar el alta de las bitacoras de SLA a procesar
+                    se deben cumplir con los siguientes requisitos:</h4></div>
+                <div class="panel-body">
+                    <dl>
+                        <ul class="list-group">
+                            <li class="text-primary list-group-item-success list-group-item"> Formato del archivo:</li>
+                            <li class="list-group-item list-group-item-info">.tar.bz2</li>
+                            <li class="text-primary list-group-item-success list-group-item">El nombre del archivo debe
+                                tener la siguiente nomenclatura:
+                            </li>
+                            <li class="list-group-item list-group-item-info">ambiente-mesaño.tar.bz2</li>
+                            <li class="text-primary list-group-item-success list-group-item">El contenido de dicho
+                                archivo debe ser una carpeta
+                                con la misma nomenclatura que el nombre del archivo y su contenido deben ser las
+                                bitacoras de los servidores del
+                                ambiente al que se menciona en el nombre del archivo ejemplo:
+                            </li>
+                            <li class="list-group-item list-group-item-info">prod-agosto2015.tar.bz2</li>
+
+                            <li class="text-primary list-group-item-success list-group-item"> El nombre del ambiente
+                                puede ser: prod, uat, stress
+                            </li>
+                            <div class="example">
+                                <img class="slogo-2 img-responsive img-rounded"
+                                     src="{{ url_for('static', filename='example_0.png') }}">
+                            </div>
+                        </ul>
+                    </dl>
+
+                </div>
+                <mark>
+                    <p class="text-danger">.</p>
+                </mark>
+            </blockquote>
+        </div>
+    </div>
+    <div class="container-fluid col-md-7 upload">
+        <div class="col-xs-10 col-md-offset-0 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                {% with msgs =  get_flashed_messages() %}
+                    {% if msgs %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-info">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <fieldset>
+                    <legend>Selecciona el archivo tar.bz2 de las bitacoras de SLA</legend>
+                    <form action="" class="form-horizontal" method=post enctype=multipart/form-data>
+
+                        <div class="form_upload">
+                            <p><input class="btn" type=file name=file></p>
+                        </div>
+                        <div class="form-upload">
+                            <input class="btn btn-primary" type=submit value=Upload>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}

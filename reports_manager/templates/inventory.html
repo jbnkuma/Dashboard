@@ -1,0 +1,50 @@
+{% extends "b/base.html" %}
+{% block title %}Inventory{% endblock %}
+
+{% block navbar %}
+    {# <div class="navbar navbar-fixed-top">
+        <div class="navbar navbar-fixed-top">
+            <a href="{{ url_for('infra_console') }}">Regresar</a>
+    </div>
+    </div>#}
+{% endblock %}
+
+{% block content %}
+    <div class="table-responsive-proc">
+        {{ pagination.links }}
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="text-info small text-center text-capitalize">ID</th>
+                <th class="text-info small text-justify text-capitalize">Fecha de alta al inventario</th>
+                <th class="text-info small text-center text-capitalize">Hostname</th>
+                <th class="text-info small text-center text-capitalize">Ambiente</th>
+                <th class="text-info small text-center text-capitalize">Ip de gestion</th>
+                <th class="text-info small text-center text-capitalize">Ip productiva</th>
+                {#                <th class="text-info small text-center text-capitalize">Hash de indentidad de servidor</th>#}
+                {#                <th class="text-info small text-center text-capitalize">Puerto</th>#}
+                <th class="text-info small text-center text-capitalize">Estatus</th>
+
+                {#                <th class="text-info small text-center text-capitalize">Interfaz de administración</th>#}
+                <th class="text-info small text-center text-capitalize">Plataforma</th>
+                <th class="text-info small text-center text-capitalize">Servicio</th>
+            </tr>
+            {% for i in result %}
+                <tr>
+                    <td class="info small text-center">{{ i.id }}</td>
+                    <td class="info small text-center">{{ i.date_admission }}</td>
+                    <td class="info small text-center">{{ i.hostname }}</td>
+                    <td class="info small text-center">{{ i.environment }}</td>
+                    <td class="info small text-center">{{ i.ip_admin }}</td>
+                    <td class="info small text-center">{{ i.ip_prod }}</td>
+                    {#                    <td class="info small">{{ i.biometric }}</td>#}
+                    {#                    <td class="info small">{{ i.port }}</td>#}
+                    <td class="info small text-center">{{ i.status }}</td>
+                    {#                    <td class="info small">{{ i.admin_iface }}</td>#}
+                    <td class="info small text-center">{{ i.platform }}</td>
+                    <td class="info small text-center">{{ i.service }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {{ pagination.links }}
+    </div>
+{% endblock %}

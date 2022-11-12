@@ -1,0 +1,101 @@
+{% extends "b/base.html" %}
+{% block title %}Incidents{% endblock %}
+
+{% block content %}
+    <script>
+        $(document).ready(function () {
+            $('#fecha').datepicker({
+                format: "dd-mm-yyyy",
+                language: 'es'
+            });
+              $('#fecha_ini ').datepicker({
+                format: "dd-mm-yyyy",
+                language: 'es'
+            });
+            $('#time_ini').timepicker({
+                showPeriodLabels: false,
+                minutes: {interval: 1},
+                minuteText: 'Min',
+                showMeridian: false,
+                defaultTime: false,
+                template: false
+            });
+            $('#time_end').timepicker({
+                showPeriodLabels: false,
+                minutes: {interval: 1},
+                minuteText: 'Min',
+                showMeridian: false,
+                defaultTime: false,
+                template: false
+            });
+
+
+        });
+    </script>
+
+    <div class="container-fluid">
+        <div class="col-xs-10 col-md-offset-1 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                {% with msgs =  get_flashed_messages() %}
+                    {% if msgs %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-info">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form method="post" class="form-horizontal">
+
+                    <div class="incident_RFC">
+                        <div><label class="small  label my_label">{{ form.reference.label }}</label></div>
+                        {{ form.reference(size=10) }}
+                    </div>
+                    <div class="incident_date">
+                        <div><label for="fecha" class="small  label my_label">{{ form.date_incident.label }}</label>
+                        </div>
+                        {{ form.date_incident(size=8,id="fecha", readonly=True) }}
+                    </div>
+                    <div class="incident_environment">
+                        <div><label class="small label my_label">{{ form.environment.label }}</label></div>
+                        {{ form.environment }}
+                    </div>
+                    <div class="incident_platform">
+                        <div><label class="small  label my_label">{{ form.platform.label }}</label></div>
+                        {{ form.platform }}
+                    </div>
+                    <div class="incident_name">
+                        <div><label class="small label my_label">{{ form.incident_name.label }}</label></div>
+                        {{ form.incident_name(size=50) }}
+                    </div>
+                    <div class="incident_description">
+                        <div><label class="small  label my_label">{{ form.description.label }}</label></div>
+                        {{ form.description(class="form-control", rows="8") }}
+                    </div>
+                    <div class="incident_listing">
+                        <div><label class="small  label my_label">{{ form.listing.label }}</label></div>
+                        {{ form.listing(class="form-control", rows="8", multiple="multiple") }}
+                    </div>
+                    <div class="incident_time_ini">
+                        <div><label class="small  label my_label"> {{ form.time_ini.label }}</label></div>
+                        {{ form.time_ini(class="col-xs-2", value="00:00", id="time_ini", readonly=True) }}
+                    </div>
+                    <div class="incident_time_end">
+                        <div><label class="small  label my_label">{{ form.time_end.label }}</label></div>
+                        {{ form.time_end(class="col-xs-4", value="00:00", readonly=True, id="time_end") }}
+                    </div>
+                    <div class="incident_notes">
+                        <div><label class="small  label my_label"> {{ form.notes.label }}</label></div>
+                        {{ form.notes(class="form-control", rows="8") }}
+                    </div>
+                    <div class="form-incident">
+                        <div class="btn btn-group">
+                            <button type="submit" class="btn btn-primary" href="{{ url_for('incident_console') }}">
+                                Guardar
+                            </button>
+                            <button type="reset" class="btn btn-primary" onclick="">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}>

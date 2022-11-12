@@ -1,0 +1,51 @@
+{% extends "b/base.html" %}
+{% block title %}Get report{% endblock %}
+
+{% block content %}
+    <script>
+        $(document).ready(function () {
+            $('#month').datepicker({
+                format: "mm",
+                language: 'es',
+                viewMode: "months",
+                minViewMode: "months",
+            });
+            $('#year ').datepicker({
+                format: "yyyy",
+                language: 'es',
+                viewMode: "years",
+                minViewMode: "years"
+            });
+        });
+    </script>
+    <div class="container-fluid row_login">
+        <div class="col-xs-7 col-md-offset-3 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                {% with msgs =  get_flashed_messages() %}
+                    {% if msgs %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-info">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="" class="form-horizontal" method=post>
+                    <legend>Generar Reporte del: </legend>
+                    <div class="group-report">
+                            <div><label class="small label my_label">{{ form.month.label }}</label></div>
+                            {{ form.month(class="col-xs-3", size=8,id="month", readonly=True) }}
+                            <div class="year">
+                                <div><label class="small label my_label">{{ form.year.label }}</label></div>
+                                {{ form.year(class="col-xs-3", size=8,id="year", readonly=True) }}
+                            </div>
+                    </div>
+
+                    <div class="form_upload">
+                        <div class="form-upload">
+                            <input class="btn btn-primary" type=submit value=Generar>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

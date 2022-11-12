@@ -1,0 +1,122 @@
+/*
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: Georgia,"Times New Roman",Times,serif;
+  font-size: 100%;
+  background-image: url(imagenes/fondo.jpg);
+  background-color: black;
+}
+/!*
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  background-image: url(imagenes/tux.png);
+  background-repeat: repeat;
+  background-position:  0 0;
+  background-color: #333333;
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: outside;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  height: 30px;
+  float: left;
+}
+#menu1 ul li {
+  display: inline;
+}
+#menu1 ul li a:link, #menu ul li a:visited {
+  padding: 5px 15px;
+  background-image: url(tux.png);
+  background-repeat: repeat;
+  background-position:  0 0;
+  color: #000000;
+  float: left;
+  text-decoration: none;
+}
+#menu1 ul li a:hover, #menu ul li a:active {
+  color: #990000;
+  background-position: 0 -30px;
+  background-color: #cccccc;
+  height: 20px;
+}*!/
+#contenedor {
+  margin: 10px auto;
+  width: 800px;
+  height: 880px;
+  /!*background-color: #ffffff;*!/
+  background-image: url(imagenes/contenedor.png);  /!* Este kambia la imagen del kontenedor*!/
+}
+#cabecera {
+  width: 50em;
+  /!*background-color: #ffffff;*!/
+  background-image: url(imagenes/contenedor.png);  
+  /!* No passa nada en esta ruta de imagen *!/
+}
+#menu1 {
+  padding: 0px;
+  float: left;
+  width: 160px;
+}
+#contenido {
+  padding: 0px;
+  width: 580px;
+  height: 660px;
+  float: left;
+  background-image: url(imagenes/container.png);
+  /!*background-color: #ffffff;*!/
+}
+#capa2 {
+  width: 25em;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  width: 180px;
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+/!*a {
+  margin: 1em 0;
+  float: left;
+  clear: left;
+}
+a.boton {
+  border: 1px outset #000000;
+  padding: 0.1em 0.5em;
+  text-decoration: none;
+  color: #000000;
+}
+a.boton:hover {
+  background: #000000 none repeat scroll 0% 50%;
+}
+a.boton:active {
+  border: 1px inset #000000;
+}*!/
+
+img {
+  margin: auto;
+  display: block;
+
+}
+#contenido h2{
+  margin: 0px 0px 0px 10px;}
+
+#pie{
+clear: both;   
+padding: 30px;
+width: 100%;
+height: 1.5em;
+/!*background:#000;*!/
+color:#fff;
+position:relative ;
+margin:0 auto;
+margin-top:3em;
+/!*background-image: url(imagenes/fondo1.jpg);*!/
+}
+*/

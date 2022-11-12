@@ -1,0 +1,51 @@
+{% extends "b/base.html" %}
+
+{% block title %}Search Server{% endblock %}
+
+{% block content %}
+    <div class="container-fluid col-xs-8 row_login">
+        <div class="col-xs-10 col-md-offset-4 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                <form action="" method="get" class="form-horizontal">
+                    {% with msgs =  get_flashed_messages() %}
+                        {% if msgs %}
+                            {% for msg in msgs %}
+                                <div class="alert alert-success">{{ msg }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    {% if error %}<p class="alert alert-error text-danger">{{ error }}</p>{% endif %}
+                    <div class="form-search">
+                        <div class="typeahead-container">
+                            <div><label class="label my_label"> {{ form.search_log.label }}</label></div>
+                            {#                        <input class="col-xs-18 typeahead" type="text">#}
+                            <div class="typeahead-field">
+                            <span class="typeahead-query">
+                                 {{ form.search_log(autocomplete="off", type="search", id="log_search") }}
+                            </span>
+                            <span class="typeahead-button">
+                                <button type="submit" href="{{ url_for('search_storelog') }}"><span
+                                        class="typeahead-search-icon"></span>
+                                </button>
+                         </span>
+                            </div>
+                        </div>
+                        <script>
+                            $('#log_search').typeahead({
+                                order: "desc",
+                                source: {
+                                    data: {{ h_names | safe }}
+                                },
+                                callback: {
+                                    onInit: function (node) {
+                                        console.log('Typeahead Initiated on ' + node.selector);
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

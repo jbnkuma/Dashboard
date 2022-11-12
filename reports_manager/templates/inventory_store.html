@@ -1,0 +1,33 @@
+{% extends "b/base.html" %}
+{% block title %}Inventory{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+    <div class="table-responsive-proc">
+        {{ pagination.links }}
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="text-info small text-center text-capitalize">ID</th>
+                <th class="text-info small text-justify text-capitalize">Ruta absoluta de almacenamiento</th>
+                <th class="text-info small text-center text-capitalize">Nombre del Archivo</th>
+                <th class="text-info small text-center text-capitalize">MD5</th>
+                <th class="text-info small text-center text-capitalize">Mes</th>
+                <th class="text-info small text-center text-capitalize">Año</th>
+
+            </tr>
+            {% for i in result %}
+                <tr>
+                    <td class="info small text-center">{{ i.id }}</td>
+                    <td class="info small text-center">{{ i.absolute_route }}</td>
+                    <td class="info small text-center">{{ i.file_name }}</td>
+                    <td class="info small text-center">{{ i.hash_md5 }}</td>
+                    <td class="info small text-center">{{ i.month }}</td>
+                    <td class="info small text-center">{{ i.year }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {{ pagination.links }}
+    </div>
+{% endblock %}

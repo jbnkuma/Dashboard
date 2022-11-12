@@ -1,0 +1,60 @@
+{% extends "b/base.html" %}
+{% block title %}Manager{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+            <div class="navbar-header">
+                {#                <a class="navbar-brand" href="{{ url_for('add_server') }}" target="mi_marco">Añadir servidor</a>#}
+                <div class="infra_menu">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="add_server" href="#">Añadir servidor</button>
+                        <button class="btn btn-primary" id="modify_server" href="#">Modificar servidor</button>
+                        <button class="btn btn-primary" id="upload_servers" href="#">Alta masiva de servidores</button>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" id="server_inventory" href="#">Inventario</button>
+                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a id="prod_inventory" href="#">PRODUCCION</a></li>
+                                <li class="divider"></li>
+                                <li><a id="uat_inventory" href="#">UAT</a></li>
+                                <li class="divider"></li>
+                                <li><a id="stress_inventory" href="#">ESTRES</a></li>
+                                <li class="divider"></li>
+                                <li><a id="search" href="#">BUSCAR</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-u btn-primary" onclick="location.href = '/report/'">Regresar</button>
+                    </div>
+                    {#                <a class="navbar-brand" href="{{ url_for('add_server') }}" target="mi_marco">Modificar cambio</a>#}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div id="embed-responsive embed-responsive-4by3">
+        {#   <div id="capa">
+
+
+        </div>#}
+        <div class="row container-fluid logos col-md-4 col-md-offset-4">
+            <img class="logos img-responsive img-rounded"
+                 src="{{ url_for('static', filename='logos2-1.jpeg') }}">
+        </div>
+        <div class="row container-fluid slogo-1 col-md-4 col-md-offset-4">
+            <img class="slogo-1 img-responsive img-rounded"
+                 src="{{ url_for('static', filename='tsuse_logo_w-tag_color.jpg') }}">
+        </div>
+        <iframe style="border: 0px none;"
+                id="capa" name="mi_marco" class="embed-responsive-item" src="" height="600px" scrolling="yes"
+                width="100%">Es
+            probable que tu navegador no soporte iframes trata con algun otro
+            navegador o actualiza tu navegador te recomiendo mozilla firefox
+        </iframe>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% block doc -%}
+    <!DOCTYPE html>
+    <html{% block html_attribs %}{% endblock html_attribs %}>
+    {%- block html %}
+        <head>
+            {%- block head %}
+                <title>{% block title %}{% endblock title %}</title>
+
+                {%- block metas %}
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                {%- endblock metas %}
+
+                {%- block styles %}
+                    <!-- Bootstrap -->
+                    <link rel="shortcut icon" media="screen" href="{{ url_for('static', filename='favicon.ico') }}"/>
+                    <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='css/bootstrap.css') }}">
+                    <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='css/my_stile.css') }}">
+                    <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='css/typeahead.css') }}">
+                     <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='date/css/bootstrap-datepicker3.css') }}">
+                    <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='clock/css/bootstrap-timepicker.css') }}">
+                 {#   <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='js/jquery-ui/jquery-ui.css') }}">
+                    <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='js/jquery-ui-timepicker/jquery.ui.timepicker.css') }}">#}
+
+                    {# <link rel="stylesheet" media="screen" type="text/css"
+                          href="{{ url_for('static', filename='js/jquery-timepicker/jquery.timepicker.css') }}">#}
+
+                {%- endblock styles %}
+                {% block scripts %}
+                    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+                    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+                    <script src="{{ url_for('static', filename='js/div_html.js') }}"></script>
+                    <script src="{{ url_for('static', filename='js/jquery-ui/jquery-ui.js') }}"></script>
+                    <script src="{{ url_for('static', filename='date/js/bootstrap-datepicker.js') }}"></script>
+                     <script src="{{ url_for('static', filename='date/locales/bootstrap-datepicker.es.min.js') }}"></script>
+{#                    <script src="{{ url_for('static', filename='js/jquery-ui-timepicker/jquery.ui.timepicker.js') }}"></script>#}
+                    <script src="{{ url_for('static', filename='js/typeahead.js') }}"></script>
+                     <script src="{{ url_for('static', filename='clock/js/bootstrap-timepicker.js') }}"></script>
+                    {#                    <script src="{{ url_for('static', filename='js/jquery-timepicker/jquery.timepicker.js') }}"></script>#}
+                    {#                <script type="text/javascript" charset="utf-8" src={{ url_for('static', filename='js/jquery.min.js')}}></script>#}
+                    {#                <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename= 'js/menu.js') }}"></script>#}
+
+                {%- endblock scripts %}
+            {%- endblock head %}
+        </head>
+        <body{% block body_attribs %}{% endblock body_attribs %}>
+        {% block body -%}
+            {% block navbar %}
+            {%- endblock navbar %}
+            {% block content -%}
+            {%- endblock content %}
+        {%- endblock body %}
+        </body>
+    {%- endblock html %}
+    </html>
+{% endblock doc -%}

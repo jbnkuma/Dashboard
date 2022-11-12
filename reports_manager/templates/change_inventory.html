@@ -1,0 +1,66 @@
+{% extends "b/base.html" %}
+{% block title %}Inventory{% endblock %}
+
+{% block navbar %}
+    {#  <div class="navbar navbar-fixed-top">
+        <a href="{{ url_for('changes_incident') }}">Regresar</a>
+    </div>#}
+{% endblock %}
+
+{% block content %}
+
+    <div class="table-responsive">
+        {{ pagination.links }}
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <th class="text-info small text-center text-capitalize">Fecha de alta del cambio</th>
+                <th class="text-info small text-center text-capitalize">Fecha de sesion CAB</th>
+                <th class="text-info small text-center text-capitalize">Folio RFC SAT</th>
+                <th class="text-info small text-center text-capitalize">Nombre del cambio</th>
+                <th class="text-info small text-center text-capitalize">Categoria</th>
+                <th class="text-info small text-center text-capitalize">Ambiente</th>
+                <th class="text-info small text-center text-capitalize">Plataforma</th>
+                <th class="text-info small text-center text-capitalize">Descripción</th>
+                <th class="text-info small text-center text-capitalize">Ejecutor del cambio</th>
+                <th class="text-info small text-center text-capitalize">Solicitante del cambio</th>
+                <th class="text-info small text-center text-capitalize">Listado de
+                    equipo/Aplicaciones/Componentes/Servicios en el cambio
+                </th>
+                <th class="text-info small text-center text-capitalize">Fecha del cambio</th>
+                <th class="text-info small text-center text-capitalize">Hora inicial de implementación</th>
+                <th class="text-info small text-center text-capitalize">Hora final de implementación</th>
+                <th class="text-info small text-center text-capitalize">VoBo de Gobierno</th>
+                <th class="text-info small text-center text-capitalize">Notas</th>
+                <th class="text-info small text-center text-capitalize">Grupo de Soporte</th>
+                <th class="text-info small text-center text-capitalize">Prioridad</th>
+            </tr>
+            {% for i in result %}
+                <tr>
+                    <td class="warning small">{{ i.date_now }}</td>
+                    <td class="warning small">{{ i.datecab }}</td>
+                    <td class="warning small">{{ i.reference }}</td>
+                    <td class="warning small">{{ i.change_name }}</td>
+                    <td class="warning small">{{ i.category }}</td>
+                    <td class="warning small">{{ i.environment }}</td>
+                    <td class="warning small">{{ i.platform }}</td>
+                    <td class="warning small">{{ i.description }}</td>
+                    <td class="warning small">{{ i.in_charge }}</td>
+                    <td class="warning small">{{ i.applicant }}</td>
+                    <td class="warning small">{{ i.listing }}</td>
+                    <td class="warning small">{{ i.date_ini }}</td>
+                    <td class="warning small">{{ i.time_ini }}</td>
+                    <td class="warning small">{{ i.time_end }}</td>
+                    <td class="warning small">{{ i.vobo }}</td>
+                    <td class="warning small">{{ i.notes }}</td>
+                    <td class="warning small">{{ i.support }}</td>
+                    <td class="warning small">{{ i.priority }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {{ pagination.links }}
+    </div>
+{% endblock %}

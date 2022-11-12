@@ -1,0 +1,84 @@
+{% extends "b/base.html" %}
+{% block title %}Addserver{% endblock %}
+
+{% block content %}
+    <div class="container-fluid col-xs-8 row_login">
+        <div class="col-xs-10 col-md-offset-4 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                <form method="post" class="form-horizontal">
+                    {% if error %}<p class="alert alert-error text-danger">{{ error }}</p>{% endif %}
+                    {% for error in form.hostname.errors %}
+                        <span class="alert alert-error  text-danger">{{ error }}</span>{% endfor %}
+                    {% with msgs =  get_flashed_messages() %}
+                        {% if msgs %}
+                            {% for msg in msgs %}
+                                <div class="alert alert-success">{{ msg }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="hostname">
+                        <div><label class="label my_label"> {{ form.hostname.label }}</label></div>
+                        {{ form.hostname(class="col-xs-18") }}
+                    </div>
+                    <div class="ip">
+                        <div><label class="label my_label"> {{ form.ip.label }}</label></div>
+                        {{ form.ip(class="col-xs-18") }}
+                    </div>
+                    <div class="ambiente">
+                        <div><label class="label my_label"> {{ form.environment.label }}</label></div>
+                        {{ form.environment(class="col-xs-18") }}
+
+                    </div>
+
+                    <div class="iface">
+                        <div><label class="label my_label"> {{ form.ip_prod.label }}</label></div>
+                        {{ form.ip_prod(class="col-xs-18") }}
+                    </div>
+
+
+                    <div class="platform">
+                        <div><label class="label my_label"> {{ form.platform.label }}</label></div>
+                        {{ form.platform(class="col-xs-16") }}
+
+                    </div>
+
+                    <div class="service_group">
+                        <div><label class="label my_label">{{ form.service_group.label }}</label></div>
+                        {{ form.service_group(class="col-xs-20") }}
+                    </div>
+
+                    <div class="service">
+                        <div><label class="label my_label"> {{ form.service.label }}</label></div>
+                        {{ form.service(class="col-xs-13") }}
+                    </div>
+
+                    <div class="status">
+                        <div>
+                            <div><label class="label my_label"> {{ form.status.label }}</label></div>
+                        </div>
+                        {{ form.status }}
+
+                    </div>
+
+                    {# <div class="port">
+                        <div><label class="label my_label"> {{ form.port.label }}</label></div>
+
+                        {{ form.port(class="col-xs-14") }}
+
+                    </div>#}
+
+
+                    <div class="form-server">
+                        <div class="server_botton">
+                            <div class="btn btn-group">
+                                <button type="submit" name="submit" class="btn btn-primary" href="{{ url_for('add_server') }}">Guardar
+                                </button>
+                                <button type="reset" class="btn btn-primary"  onclick="" >Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

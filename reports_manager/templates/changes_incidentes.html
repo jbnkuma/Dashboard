@@ -1,0 +1,44 @@
+{% extends "b/base.html" %}
+{% block title %}Manager{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="incident_changes_menu">
+                    <div class="btn btn-group">
+                        <button class="btn btn-primary" id="change_console" href="#">Alta de Cambio</button>
+                        <button class="btn btn-primary" id="changes_inventory" href="#">Inventario de
+                            cambios
+                        </button>
+                        <button class="btn btn-primary" id="incidents_console" href="#">Alta de incidente</button>
+                        <button class="btn btn-primary" id="incidents_inventory" href="#">Inventario de
+                            incidencias
+                        </button>
+                        {#                <a class="navbar-brand" href="{{ url_for('add_server') }}" target="mi_marco">Modificar cambio</a>#}
+                        <button class="btn btn-primary" onclick="location.href='/report/'">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row container-fluid logos col-md-4 col-md-offset-4">
+        <img class="logos img-responsive img-rounded"
+             src="{{ url_for('static', filename='logos2-1.jpeg') }}">
+    </div>
+    <div class="row container-fluid slogo-1 col-md-4 col-md-offset-4">
+        <img class="slogo-1 img-responsive img-rounded"
+             src="{{ url_for('static', filename='tsuse_logo_w-tag_color.jpg') }}">
+    </div>
+    <div id="embed-responsive embed-responsive-4by3">
+        <iframe style="border: 0px none;"
+                id="capa" name="mi_marco" src="" height="800px" scrolling="yes" width="100%">Es
+            probable que tu navegador no soporte iframes trata con algun otro
+            navegador o actualiza tu navegador te recomiendo mozilla firefox
+        </iframe>
+    </div>
+
+{% endblock %}

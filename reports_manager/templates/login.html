@@ -1,0 +1,54 @@
+{% extends "b/base.html" %}
+{% block title %}Reportes SLA{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand"> Reporte SLA SAT </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row container-fluid slogo col-md-4 col-md-offset-4">
+        <img class="slogo img-responsive img-rounded"
+             src="{{ url_for('static', filename='tsuse_logo_w-tag_color.jpg') }}">
+    </div>
+    <div class="container-fluid row row_login">
+        <div class="col-md-4 col-md-offset-4 centered">
+            <div class="login well my_well offset2 span8">
+                <form method="post" class="form-horizontal">
+                    <legend>Login</legend>
+                    {% if error %}<p class="alert alert-error">{{ error }}</p>{% endif %}
+                    <div class="control-group{% if form.user_name.errors %} error{% endif %}">
+                        {{ form.user_name.label(class="control-label") }}
+                        <div class="controls">
+                            {{ form.user_name(class="input-sm col-xs-12") }}
+                            {% for error in form.user_name.errors %}
+                                <span class="help-inline">{{ error }}</span>{% endfor %}
+                        </div>
+                    </div>
+                    <div class="control-group{% if form.password.errors %} error{% endif %}">
+                        {{ form.password.label(class="control-label") }}
+                        <div class="controls">
+                            {{ form.password(class="input-sm col-xs-12", autocomplete="off") }}
+                            {% for error in form.password.errors %}
+                                <span class="help-inline">{{ error }}</span>{% endfor %}
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-large btn-primary">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row container-fluid logos col-md-4 col-md-offset-4">
+        <img class="logos img-responsive img-rounded"
+             src="{{ url_for('static', filename='logos2-1.jpeg') }}">
+    </div>
+
+{% endblock %}

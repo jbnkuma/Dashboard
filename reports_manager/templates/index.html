@@ -1,0 +1,68 @@
+{% extends "b/base.html" %}
+{% block title %}SLA Manager{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="ini_menu">
+                    <div class="btn btn-group">
+                        <button class="btn btn-primary" onclick="location.href='/infra_console/'">Administracion de
+                            infarestructura
+                        </button>
+                        <button class="btn btn-primary" onclick="location.href='/changes_incident/'">Administración de
+                            cambios e
+                            incidencias
+                        </button>
+                        <button class="btn btn-primary" id="monn" href="#">Monitoreo</button>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" id="get_report" href="#">Generación de reporte</button>
+                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a id="log_up" href="#">Alta de bitacoras</a></li>
+                                <li class="divider"></li>
+                                <li><a id="p_prod" href="#">Procesar producción</a></li>
+                                <li class="divider"></li>
+                                <li><a id="p_uat" href="#">Procesar uat</a></li>
+                                <li class="divider"></li>
+                                <li><a id="p_stress" href="#">Procesar stress</a></li>
+                                <li class="divider"></li>
+                                <li><a id="search_plogs" href="#">Buscar para procesar</a></li>
+                                <li class="divider"></li>
+                                <li><a id="search_logs" href="#">Buscar archivo de bitacoras</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary" onclick="location.href='/logout/'">Logout</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div id="embed-responsive embed-responsive-4by3">
+
+        {#        <div id="capa">#}
+        <div class="row container-fluid logos col-md-4 col-md-offset-4">
+            <img class="logos img-responsive img-rounded"
+                 src="{{ url_for('static', filename='logos2-1.jpeg') }}">
+        </div>
+        <div class="row container-fluid slogo-1 col-md-4 col-md-offset-4">
+            <img class="slogo-1 img-responsive img-rounded"
+                 src="{{ url_for('static', filename='tsuse_logo_w-tag_color.jpg') }}">
+        </div>
+        <iframe style="border: 0px none;"
+                id="capa" name="mi_marco" src="" height="600px" scrolling="yes" width="100%">Es
+            probable que tu navegador no soporte iframes trata con algun otro
+            navegador o actualiza tu navegador te recomiendo mozilla firefox
+        </iframe>
+    </div>
+    {#        </div>#}
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "b/base.html" %}
+{% block title %}Add Server{% endblock %}
+
+{% block content %}
+    <div class="col-md-5">
+        <div class="panel panel-info">
+            <blockquote class="small">
+                <div class="panel-heading"><h4>Para realizar la alta mediante archivo, se debe cumplir con los
+                    siguientes requisitos:</h4></div>
+                <div class="panel-body">
+                    <dl>
+                        <ul class="list-group">
+                            <li class="text-primary list-group-item-success list-group-item"> Formato del archivo:</li>
+                            <li class="list-group-item list-group-item-info">- Excel .xlsx</li>
+                            <li class="text-primary list-group-item-success list-group-item">Columnas que debe contener
+                                el archivo:
+                            </li>
+                            <li class="text-danger list-group-item list-group-item-danger">[A1] Hostname del servidor
+                            </li>
+                            <li class="text-danger list-group-item list-group-item-danger">[B1]Ip Administrativa</li>
+                            <li class="list-group-item list-group-item-info">[C1] Ambiente</li>
+                            <li class="list-group-item list-group-item-info">[D1] IP productiva</li>
+                            <li class="list-group-item list-group-item-info">[E1] Plataforma</li>
+                            <li class="list-group-item list-group-item-info">[F1] Grupo de servicio</li>
+                            <li class="list-group-item list-group-item-info">[G1] Servicio</li>
+                            <li class="list-group-item list-group-item-info">[H1] Estatus</li>
+
+                        </ul>
+                    </dl>
+                </div>
+                <mark>
+                    <p class="text-danger">Las columnas Hostname e Ip es forzoso que contengan datos, en caso de no
+                        contar con el dato se debe
+                        colocar la palabra none, lo anterior aplica para las demas columnas.</p>
+
+                    <p class="text-danger">La informacíon debe aparecer en el archivo apartir de la fila 2 de las
+                        distintas columnas</p>
+                </mark>
+            </blockquote>
+        </div>
+    </div>
+    <div class="container-fluid col-md-7 upload">
+        <div class="col-xs-10 col-md-offset-0 centered">
+            <div class="appointment-edit well my_well offset2 span8">
+                {% with msgs =  get_flashed_messages() %}
+                    {% if msgs %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-info">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <fieldset>
+                    <legend>Selecciona el archivo con los datos de los servidores</legend>
+                    <form action="" class="form-horizontal" method=post enctype=multipart/form-data>
+
+                    <div class="form_upload">
+                        <p><input class="btn" type=file name=file></p>
+                    </div>
+                    <div class="form-upload">
+                        <input class="btn btn-primary" type=submit value=Upload>
+                    </div>
+                </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}

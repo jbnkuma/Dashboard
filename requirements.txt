@@ -1,0 +1,15 @@
+Flask
+Flask-Script
+Flask-Login
+Flask-Bootstrap
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Uploads
+WTForms
+WTForms-Alchemy
+xlsxwriter
+openpyxl
+paramiko
+argparse
+Flask-paginate
+algorithms

@@ -1,0 +1,131 @@
+{% extends "b/base.html" %}
+{% block title %}Changes{% endblock %}
+
+{% block content %}
+    <script>
+        $(document).ready(function () {
+            $('#fecha').datepicker({
+                format: "dd-mm-yyyy",
+                language: 'es'
+            });
+              $('#fecha_ini ').datepicker({
+                format: "dd-mm-yyyy",
+                language: 'es'
+            });
+            $('#time_ini').timepicker({
+                showPeriodLabels: false,
+                minutes: {interval: 1},
+                minuteText: 'Min',
+                showMeridian: false,
+                defaultTime: false,
+                template: false
+            });
+            $('#time_end').timepicker({
+                showPeriodLabels: false,
+                minutes: {interval: 1},
+                minuteText: 'Min',
+                showMeridian: false,
+                defaultTime: false,
+                template: false
+            });
+
+
+        });
+    </script>
+    <div class="container-fluid">
+        <div class="col-xs-15 col-md-offset-1 centered">
+            <div class="appointment-edit well  my_well offset3 span8">
+                {% with msgs =  get_flashed_messages() %}
+                    {% if msgs %}
+                        {% for msg in msgs %}
+                            <div class="alert alert-info">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form method="post" class="form-horizontal">
+                    <div><label class="small label my_label"> {{ form.reference.label }} </label></div>
+                    <div class="change_RFC">
+                        {{ form.reference(class="col-xs-4") }}
+                    </div>
+                    <div class="change_date">
+                        <div><label for="fecha" class="small label my_label">{{ form.date_cab.label }}</label></div>
+                        {{ form.date_cab(class="col-xs-3", id="fecha", readonly=True) }}
+                    </div>
+                    <div class="change_category ">
+                        <div><label class="small label my_label col-xs-13"> {{ form.category.label }}</label></div>
+                        {{ form.category }}
+                    </div>
+                    <div class="change_environment">
+                        <div><label class="small label my_label col-xs-13">{{ form.environment.label }}</label></div>
+                        {{ form.environment }}
+                    </div>
+                    <div class="change_platform">
+                        <div><label class="small label my_label col-xs-13"> {{ form.platform.label }}</label></div>
+                        {{ form.platform(class="form-control", rows="1") }}
+                    </div>
+                    <div class="change_name">
+                        <div><label class="small label my_label"> {{ form.change_name.label }}</label></div>
+                        {{ form.change_name(size=50) }}
+                    </div>
+                    <div class="change_description">
+                        <div><label class="small label my_label"> {{ form.description.label }}</label></div>
+                        {{ form.description(class="form-control",rows="8") }}
+                    </div>
+                    <div class="change_in_charge">
+                        <div><label class="small label my_label"> {{ form.in_charge.label }}</label></div>
+                        {{ form.in_charge(size=25) }}
+                    </div>
+                    <div class="change_applicant">
+                        <div><label class="small label my_label"> {{ form.applicant.label }}</label></div>
+                        {{ form.applicant(size=25) }}
+                    </div>
+                    <div class="change_listing">
+                        <div><label class="small label my_label">{{ form.listing.label }}
+                        </label></div>
+                        {{ form.listing(class="form-control",rows="8") }}
+                    </div>
+                    <div class="change_dateini">
+                        <div><label for="fecha_ini" class="small label my_label "> {{ form.date_initial.label }}</label>
+                        </div>
+                        {{ form.date_initial(size=8, id="fecha_ini",  readonly=True) }}
+                    </div>
+
+                    <div class="change_time_ini bootstrap-timepicker timepicker">
+
+                        <div><label class="small label my_label">{{ form.time_ini.label }}</label></div>
+                        {{ form.time_ini(class="col-xs-4", value="00:00", readonly=True, id="time_ini") }}
+
+                    </div>
+
+                    <div class="change_time_end">
+                        <div><label class="small label my_label">{{ form.time_end.label }}</label></div>
+                        {{ form.time_end(class="col-xs-4", value="00:00", readonly=True, id="time_end") }}
+                    </div>
+                    <div class="change_vobo">
+                        <div><label class="small label my_label"> {{ form.vobo.label }}</label></div>
+                        {{ form.vobo }}
+                    </div>
+                    <div class="change_support">
+                        <div><label class="small label my_label"> {{ form.support.label }}</label></div>
+                        {{ form.support }}
+                    </div>
+                    <div class="change_priority">
+                        <div><label class="small label my_label">{{ form.priority.label }}</label></div>
+                        {{ form.priority }}
+                    </div>
+                    <div class="change_notes">
+                        <div><label class="small label my_label">{{ form.notes.label }}</label></div>
+                        {{ form.notes(class="form-control",rows="8") }}
+                    </div>
+                    <div class="form-change">
+                        <div class="btn btn-group">
+                            <button type="submit" class="btn btn-primary" href="{{ url_for('change_console') }}">Guardar
+                            </button>
+                            <button type="reset" class="btn btn-primary" onclick="">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}>

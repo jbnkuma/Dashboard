@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="DreamPie Format" content="1">
+<title>DreamPie History</title>
+<style>
+body {
+  white-space: pre-wrap;
+  font-family: Courier New;
+  font-size: 10240;
+  color: #000000;
+  background-color: #ffffff;
+}
+span.folded {
+ display: none;
+}
+span.commandsep {
+ display: none;
+}
+span.command-defs {
+}
+span.command {
+}
+span.output {
+}
+span.fold-message {
+  color: #404040;
+  background-color: #b2ddff;
+}
+span.message {
+  color: #008000;
+}
+span.prompt {
+  color: #770000;
+}
+span.exception {
+  color: #ff0000;
+}
+span.result-ind {
+  color: #808080;
+}
+span.result {
+  color: #0000ff;
+}
+span.stderr {
+  color: #ff0000;
+}
+span.stdout {
+  color: #0000ff;
+}
+span.stdin {
+}
+span.error {
+  background-color: #ff0000;
+}
+span.bracket-3 {
+  color: #a52a2a;
+}
+span.bracket-2 {
+  color: #9400f0;
+}
+span.bracket-1 {
+  color: #005400;
+}
+span.bracket-match {
+  background-color: #add8e6;
+}
+span.comment {
+  color: #dd0000;
+}
+span.number {
+  color: #0000ff;
+}
+span.string {
+  color: #00aa00;
+}
+span.builtin {
+  color: #0000ff;
+}
+span.keyword {
+  color: #ff7700;
+}
+</style>
+</head>
+<body><span class="message">Python 2.6.9 (unknown, Apr 21 2015, 12:41:15) 
+[GCC 4.9.2 20150304 (prerelease)] on linux2
+Type "copyright", "credits" or "license()" for more information.
+DreamPie 1.2.1
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.dashboard <span class="keyword">import</span> db, User
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>User = User(name=<span class="string">"admin"</span>, password=<span class="string">"secret"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.add(user)
+</span><span class="commandsep">
+</span><span class="output"><span class="exception">Traceback (most recent call last):
+  File "&lt;pyshell#2&gt;", line 1, in &lt;module&gt;
+    db.session.add(user)
+NameError: name 'user' is not defined
+</span></span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.add(User)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.models <span class="keyword">import</span> Base, servers
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine
+<span class="prompt">... </span><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> sessionmaker
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.models <span class="keyword">import</span> Base, servers, SQLALCHEMY_DATABASE_URI
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>engine = create_engine(SQLALCHEMY_DATABASE_URI)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Base.metadata.create_all(engine)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Session = sessionmaker(bind=engine)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session =  Session()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Server = servers(hostname=<span class="string">"linux-coc4"</span>, ip=<span class="string">"192.168.10.106"</span>, biometric=<span class="string">"f5e7e6d4303ce5fb2727a58795b1837ba1a831ad3e20ccd4783acceef2d24b2e"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.add(Server)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span></span>
+<span class="message">==================== New Session ====================
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.models <span class="keyword">import</span> Base, servers, SQLALCHEMY_DATABASE_URI
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine
+<span class="prompt">... </span><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> sessionmaker
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>engine = create_engine(SQLALCHEMY_DATABASE_URI)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Base.metadata.create_all(engine)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Session = sessionmaker(bind=engine)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session =  Session()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Server = servers(hostname=<span class="string">"linux-coc4"</span>, ip=<span class="string">"192.168.10.106"</span>, biometric=<span class="string">"f5e7e6d4303ce5fb2727a58795b1837ba1a831ad3e20ccd4783acceef2d24b2e"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.add(Server)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.dashboard <span class="keyword">import</span> db, User
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>User = User(name=<span class="string">"admin"</span>, password=<span class="string">"secret"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.add(User)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Server = servers(hostname=<span class="string">"linux-er1h"</span>, ip=<span class="string">"192.168.10.134"</span>, biometric=<span class="string">"a49992d6145f80a73e379d295e9e2087661322dbf068fd144f077ef872ec69a8"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.add(Server)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span></span>
+
+<span class="message">Python 2.6.9 (unknown, Apr 21 2015, 12:41:15) 
+[GCC 4.9.2 20150304 (prerelease)] on linux2
+Type "copyright", "credits" or "license()" for more information.
+DreamPie 1.2.1
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> reports_manager.dashboard <span
+        class="keyword">import</span> db, User
+</span><span class="commandsep">
+</span><span class="output"><span class="stderr">/home/novell/.local/lib/python2.6/site-packages/wtforms/ext/sqlalchemy/__init__.py:7: DeprecationWarning: wtforms.ext.sqlalchemy is deprecated, and will be removed in WTForms 3.0. Instead transition to the excellent WTForms-Alchemy package: https://github.com/kvesteri/wtforms-alchemy
+  DeprecationWarning
+</span></span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>User = User(name=<span class="string">"admin"</span>, password=<span
+        class="string">"secret"</span>)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.add(User)
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>db.session.commit()
+</span><span class="commandsep">
+</span><span class="command"><span class="prompt">&gt;&gt;&gt; </span>Server = servers(hostname=<span class="string">"linux-er1h"</span>, ip=<span
+        class="string">"192.168.10.134"</span>, biometric=<span class="string">"a49992d6145f80a73e379d295e9e2087661322dbf068fd144f077ef872ec69a8"</span>)
+</span><span class="commandsep">
+</span><span class="output"><span class="exception">Traceback (most recent call last):
+  File "&lt;pyshell#4&gt;", line 1, in &lt;module&gt;
+    Server = servers(hostname="linux-er1h", ip="192.168.10.134", biometric="a49992d6145f80a73e379d295e9e2087661322dbf068fd144f077ef872ec69a8")
+NameError: name 'servers' is not defined
+</span></span><span class="command"><span class="prompt">&gt;&gt;&gt; </span></span></body>
+</html>
